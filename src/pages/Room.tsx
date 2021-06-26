@@ -1,11 +1,9 @@
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import logoImg from '../assets/images/logo.svg';
-
 import { Question } from '../components/Question';
 import { Button } from '../components/Button';
-import { RoomCode } from '../components/RoomCode';
+import { Header } from '../components/Header';
 import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase';
 
@@ -71,16 +69,11 @@ export function Room() {
 
   return (
     <div id="page-room">
-      <header>
-        <div className="content">
-          <img src={logoImg} alt="letmeask" />
-          <RoomCode code={roomId}></RoomCode>
-        </div>
-      </header>
+      <Header roomId={roomId} userImg={user?.avatar} />
 
       <main>
         <div className="room-title">
-          <h1>Sala {title}</h1>
+          <h1>Sala: {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
 
