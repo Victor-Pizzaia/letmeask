@@ -9,6 +9,7 @@ import { database } from '../services/firebase';
 
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
+import { toast } from 'react-toastify';
 
 import '../styles/auth.scss';
 
@@ -29,18 +30,19 @@ export function Home() {
     event.preventDefault();
 
     if (roomCode.trim() === '') {
+      toast.error('Código da sala vazio');
       return;
     }
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      alert('Room does not exists.');
+      toast.error(`A sala '${roomCode}' não existe.`);
       return;
     }
 
     if (roomRef.val().endedAt) {
-      alert('Room already closed.');
+      toast.error(`A sala '${roomCode}' já esta encerrada.`);
       return;
     }
 

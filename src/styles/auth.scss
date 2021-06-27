@@ -6,7 +6,7 @@
   aside {
     flex: 7;
 
-    background: #835afd;
+    background: linear-gradient(to bottom right, #2e294e, var(--green));
     color: #fff;
 
     display: flex;
@@ -86,7 +86,7 @@
       margin-top: 16px;
 
       a {
-        color: #e559f9;
+        color: #c5d86d;
       }
     }
   }
@@ -96,7 +96,7 @@
     height: 50px;
     border-radius: 8px;
     font-weight: 500;
-    background: #ea4335;
+    background: #f46036;
     color: #fff;
 
     display: flex;

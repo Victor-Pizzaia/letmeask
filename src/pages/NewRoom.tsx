@@ -9,6 +9,7 @@ import { database } from '../services/firebase';
 import { useAuth } from '../hooks/useAuth';
 
 import '../styles/auth.scss';
+import { toast } from 'react-toastify';
 
 export function NewRoom() {
   const { user } = useAuth();
@@ -19,6 +20,7 @@ export function NewRoom() {
     event.preventDefault();
 
     if (newRoom.trim() === '') {
+      toast.error('O nome da sala não pode ser vazio');
       return;
     }
 
